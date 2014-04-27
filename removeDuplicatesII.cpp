@@ -29,35 +29,34 @@ public:
         int cnt = 1;
         int now = A[0];
         int i, j = 0;
-		
-		for (i = 1; i < n; i++) {
-			if (now == A[i]) {
-				cnt++;
-			}
-			else {
-				if (cnt >= 2) {
-					A[j] = A[i-1];
-					A[j+1] = A[i-1];
-					j += 2;
-				}	
-				else {
-					A[j] = A[i-1];
-					j += 1;
-				}
-				now = A[i];
-				cnt = 1;
-			}
-		}
-		
-		if (cnt >= 2) {
-			A[j] = A[i-1];
-			A[j+1] = A[i-1];
-			j += 2;
+        for (i = 1; i < n; i++) {
+		if (now == A[i]) {
+			cnt++;
 		}
 		else {
-			A[j] = A[i-1];
-			j += 1;	
+			if (cnt >= 2) {
+				A[j] = A[i-1];
+				A[j+1] = A[i-1];
+				j += 2;
+			}	
+			else {
+				A[j] = A[i-1];
+				j += 1;
+			}
+			now = A[i];
+			cnt = 1;
 		}
+	}
+		
+	if (cnt >= 2) {
+		A[j] = A[i-1];
+		A[j+1] = A[i-1];
+		j += 2;
+	}
+	else {
+		A[j] = A[i-1];
+		j += 1;	
+	}
         return j;
     }
 };
